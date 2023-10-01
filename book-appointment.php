@@ -9,8 +9,10 @@ $data = json_decode(file_get_contents("php://input"),true);
 $name = $data['name'];
 $email = $data['email'];
 $phone = $data['phone'];
-$slot = $data['slot'];
-$date_picker = $data['date_picker'];
+
+date_default_timezone_set("Asia/Kolkata");
+$date_picker = $data["date_picker"];
+$slot = date('H:i:s', strtotime($date_picker));
 $date = date('Y/m/d', strtotime($date_picker));
 
 include 'config.php';
